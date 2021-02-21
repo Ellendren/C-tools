@@ -7,11 +7,12 @@
 //makes a copy of the a file replacing all of the white spaces with commas
 void file_to_csv(char* file_name){
     FILE* file_to_convert = fopen(file_name, "r");
-    char* new_file_name = malloc(strlen(file_name)+4);
+    char* header_csv = "_header.csv";
+    char* new_file_name = malloc(strlen(file_name)+strlen(header_csv));
     strcpy(new_file_name, file_name);
-    strcat(new_file_name, ".csv");
+    strcat(new_file_name, header_csv);
     FILE* csv_file = fopen(new_file_name, "w");
-    FILE* csv_tmp =  fopen("tmp.csv", "w");
+    FILE* csv_tmp =  fopen("columns.csv", "w");
     char c;
     unsigned long column_count = 0;
     
@@ -78,4 +79,10 @@ void file_to_csv(char* file_name){
     //remove("tmp.csv");
     fclose(file_to_convert);
     fclose(csv_file);
+}
+
+int main(){
+    char* file_name = "concepts_of_programming_languages.txt";
+
+    file_to_csv(file_name);
 }
