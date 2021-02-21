@@ -73,10 +73,11 @@ void file_to_csv(char* file_name){
     //     fprintf(csv_file, "%c", c);
     //     c = getc(csv_tmp);
     // }
+    //remove("tmp.csv");
 
     //clean up
+    free(new_file_name);
     fclose(csv_tmp);
-    //remove("tmp.csv");
     fclose(file_to_convert);
     fclose(csv_file);
 }
