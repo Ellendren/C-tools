@@ -81,9 +81,3 @@ void file_to_csv(char* file_name){
     fclose(file_to_convert);
     fclose(csv_file);
 }
-
-int main(){
-    char* file_name = "concepts_of_programming_languages.txt";
-
-    file_to_csv(file_name);
-}
